@@ -169,6 +169,7 @@ function StarWarsCharacter() {
         currentPage={currentPage}
         paginationElements={paginationElements}
         totalPages={totalPages}
+        itemsPerPage={itemsPerPage}
       />
       {/* Character Details Modal */}
       {/* {selectedCharacter && (

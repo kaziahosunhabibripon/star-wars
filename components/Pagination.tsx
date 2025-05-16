@@ -1,3 +1,4 @@
+import { PaginationProps } from "@/types";
 import React from "react";
 
 export default function Pagination({
@@ -7,7 +8,7 @@ export default function Pagination({
   currentPage,
   paginationElements,
   totalPages,
-}) {
+}: PaginationProps) {
   return (
     <>
       {/* Pagination */}

@@ -28,3 +28,13 @@ export interface CharacterGridProps {
   searchQuery: string;
   setSelectedCharacter: React.Dispatch<React.SetStateAction<Character | null>>;
 }
+
+export type PaginationProps = {
+  isLoading: boolean;
+  filteredCharacters: Character[]; // or any[] if Character is not defined
+  goToPage: (page: number) => void;
+  currentPage: number;
+  itemsPerPage: number;
+  totalPages: number;
+  paginationElements: React.ReactNode[];
+};
