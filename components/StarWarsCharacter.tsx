@@ -7,6 +7,7 @@ import { Character } from "@/types";
 
 import CharacterGrid from "./CharacterGrid";
 import Pagination from "./Pagination";
+import CharacterDetails from "./CharacterDetails";
 // import CharacterDetails from "./CharacterDetails";
 function StarWarsCharacter() {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -172,12 +173,12 @@ function StarWarsCharacter() {
         itemsPerPage={itemsPerPage}
       />
       {/* Character Details Modal */}
-      {/* {selectedCharacter && (
+      {selectedCharacter && (
         <CharacterDetails
           character={selectedCharacter}
           onClose={() => setSelectedCharacter(null)}
         />
-      )} */}
+      )}
     </div>
   );
 }
