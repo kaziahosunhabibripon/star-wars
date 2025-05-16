@@ -6,6 +6,7 @@ import SearchBar from "./SearchBar";
 import { Character } from "@/types";
 
 import CharacterGrid from "./CharacterGrid";
+import Pagination from "./Pagination";
 function StarWarsCharacter() {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [filteredCharacters, setFilteredCharacters] = useState<Character[]>([]);
@@ -156,6 +157,14 @@ function StarWarsCharacter() {
         currentPageCharacters={currentPageCharacters}
         searchQuery={searchQuery}
         setSelectedCharacter={setSelectedCharacter}
+      />
+      <Pagination
+        isLoading={isLoading}
+        filteredCharacters={filteredCharacters}
+        goToPage={goToPage}
+        currentPage={currentPage}
+        paginationElements={paginationElements}
+        totalPages={totalPages}
       />
     </div>
   );
