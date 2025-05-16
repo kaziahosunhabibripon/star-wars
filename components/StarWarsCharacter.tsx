@@ -13,11 +13,16 @@ function StarWarsCharacter() {
   const [filteredCharacters, setFilteredCharacters] = useState<Character[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [, startTransition] = useTransition();
+
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [, setSelectedCharacter] = useState<Character | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
+    null
+  );
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isPending, startTransition] = useTransition();
 
   const itemsPerPage = 10;
 

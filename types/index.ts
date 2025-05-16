@@ -21,3 +21,10 @@ export interface Character {
   apprentices: string[];
   formerAffiliations: string[];
 }
+export interface CharacterGridProps {
+  isLoading: boolean;
+  error: string | null;
+  currentPageCharacters: Character[];
+  searchQuery: string;
+  setSelectedCharacter: React.Dispatch<React.SetStateAction<Character | null>>;
+}

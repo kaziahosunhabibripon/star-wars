@@ -1,5 +1,6 @@
 "use Client";
 
+import { CharacterGridProps } from "@/types";
 import CharacterCard from "./ChracterCard";
 
 export default function CharacterGrid({
@@ -8,7 +9,7 @@ export default function CharacterGrid({
   currentPageCharacters,
   searchQuery,
   setSelectedCharacter,
-}) {
+}: CharacterGridProps) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
       {isLoading ? (
