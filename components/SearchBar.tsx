@@ -1,7 +1,12 @@
 "use client";
+import { SearchBarProps } from "@/types";
 import { RxCross2 } from "react-icons/rx";
 
-export default function SearchBar({ searchQuery, handleSearch, clearSearch }) {
+export default function SearchBar({
+  searchQuery,
+  handleSearch,
+  clearSearch,
+}: SearchBarProps) {
   return (
     <div className="flex justify-end mb-4">
       <div className="relative">

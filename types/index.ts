@@ -38,3 +38,8 @@ export type PaginationProps = {
   totalPages: number;
   paginationElements: React.ReactNode[];
 };
+export type SearchBarProps = {
+  searchQuery: string;
+  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  clearSearch: () => void;
+};
