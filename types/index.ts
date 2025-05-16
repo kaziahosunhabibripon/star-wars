@@ -1,0 +1,23 @@
+export interface Character {
+  id: number;
+  name: string;
+  height: number;
+  mass: number | string;
+  gender: string;
+  homeworld: string;
+  wiki: string;
+  image: string;
+  born: number | string;
+  bornLocation: string;
+  died: number | string;
+  diedLocation: string;
+  species: string;
+  hairColor: string;
+  eyeColor: string;
+  skinColor: string;
+  cybernetics: string;
+  affiliations: string[];
+  masters: string[];
+  apprentices: string[];
+  formerAffiliations: string[];
+}
