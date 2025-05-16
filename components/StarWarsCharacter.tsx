@@ -60,7 +60,7 @@ function StarWarsCharacter() {
         return;
       }
 
-      const filtered = characters.filter((character: any) =>
+      const filtered = characters.filter((character) =>
         character.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
 
