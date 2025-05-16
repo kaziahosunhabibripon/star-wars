@@ -7,18 +7,17 @@ import { Character } from "@/types";
 
 import CharacterGrid from "./CharacterGrid";
 import Pagination from "./Pagination";
+// import CharacterDetails from "./CharacterDetails";
 function StarWarsCharacter() {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [filteredCharacters, setFilteredCharacters] = useState<Character[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
-    null
-  );
+  const [, setSelectedCharacter] = useState<Character | null>(null);
 
   const itemsPerPage = 10;
 
@@ -166,6 +165,13 @@ function StarWarsCharacter() {
         paginationElements={paginationElements}
         totalPages={totalPages}
       />
+      {/* Character Details Modal */}
+      {/* {selectedCharacter && (
+        <CharacterDetails
+          character={selectedCharacter}
+          onClose={() => setSelectedCharacter(null)}
+        />
+      )} */}
     </div>
   );
 }
