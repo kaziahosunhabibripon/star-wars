@@ -204,11 +204,14 @@ export default function CharacterDetails({
               )}
 
               {/* Masters */}
-              {character.masters && character.masters.length > 0 && (
+              {character.masters && (
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Masters</h3>
                   <div className="flex flex-wrap gap-2">
-                    {character.masters.map((master, index) => (
+                    {(Array.isArray(character.masters)
+                      ? character.masters
+                      : [character.masters]
+                    ).map((master, index) => (
                       <button
                         key={index}
                         className="bg-purple-100 text-purple-800 hover:bg-purple-200"
