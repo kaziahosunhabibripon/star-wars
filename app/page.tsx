@@ -1,18 +1,5 @@
-import React from "react";
-
-import { Character } from "@/types";
 import StarWarsCharacterClient from "@/components/StarWarsCharacterClient";
-
-async function fetchCharacters(): Promise<Character[]> {
-  const res = await fetch(
-    "https://akabab.github.io/starwars-api/api/all.json",
-    { next: { revalidate: 60 } } // cache and revalidate every 60 seconds
-  );
-
-  if (!res.ok) throw new Error("Failed to fetch characters");
-
-  return res.json();
-}
+import { fetchCharacters } from "@/pages/api/starwars";
 
 export default async function Home() {
   const characters = await fetchCharacters();

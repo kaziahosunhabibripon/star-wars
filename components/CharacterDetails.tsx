@@ -184,14 +184,17 @@ export default function CharacterDetails({
               </div>
 
               {/* Affiliations */}
-              {character.affiliations && character.affiliations.length > 0 && (
+              {character.affiliations && (
                 <div>
                   <h3 className="text-lg font-semibold mb-2 flex items-center">
                     <FaCircleUser className="h-5 w-5 mr-2 text-green-500" />
                     Affiliations
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {character.affiliations.map((affiliation, index) => (
+                    {(Array.isArray(character.affiliations)
+                      ? character.affiliations
+                      : [character.affiliations]
+                    ).map((affiliation, index) => (
                       <button
                         key={index}
                         className="bg-green-100 text-green-800 hover:bg-green-200"
@@ -224,11 +227,14 @@ export default function CharacterDetails({
               )}
 
               {/* Apprentices */}
-              {character.apprentices && character.apprentices.length > 0 && (
+              {character.apprentices && (
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Apprentices</h3>
                   <div className="flex flex-wrap gap-2">
-                    {character.apprentices.map((apprentice, index) => (
+                    {(Array.isArray(character.apprentices)
+                      ? character.apprentices
+                      : [character.apprentices]
+                    ).map((apprentice, index) => (
                       <button
                         key={index}
                         className="bg-indigo-100 text-indigo-800 hover:bg-indigo-200"
