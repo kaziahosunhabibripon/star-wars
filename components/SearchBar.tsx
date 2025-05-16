@@ -6,6 +6,7 @@ export default function SearchBar({
   searchQuery,
   handleSearch,
   clearSearch,
+  onSearch,
 }: SearchBarProps) {
   return (
     <div className="flex justify-end mb-4">
@@ -25,7 +26,12 @@ export default function SearchBar({
             <RxCross2 className="h-4 w-4" />
           </button>
         )}
-        <button className="border border-gray-300 ml-2">Search</button>
+        <button
+          className="border border-gray-300 ml-2"
+          onClick={onSearch} // call onSearch here directly
+        >
+          Search
+        </button>
       </div>
     </div>
   );

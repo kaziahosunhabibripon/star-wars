@@ -57,12 +57,30 @@ function StarWarsCharacter() {
     fetchAllCharacters();
   }, []);
 
-  // Handle search
-  useEffect(() => {
+  // // Handle search
+  // useEffect(() => {
+  //   startTransition(() => {
+  //     if (searchQuery.trim() === "") {
+  //       setFilteredCharacters(characters);
+  //       setTotalPages(Math.ceil(characters.length / itemsPerPage));
+  //       return;
+  //     }
+
+  //     const filtered = characters.filter((character) =>
+  //       character.name.toLowerCase().includes(searchQuery.toLowerCase())
+  //     );
+
+  //     setFilteredCharacters(filtered);
+  //     setTotalPages(Math.ceil(filtered.length / itemsPerPage));
+  //     setCurrentPage(1); // Reset to first page when searching
+  //   });
+  // }, [searchQuery, characters]);
+  const handleSearchClick = () => {
     startTransition(() => {
       if (searchQuery.trim() === "") {
         setFilteredCharacters(characters);
         setTotalPages(Math.ceil(characters.length / itemsPerPage));
+        setCurrentPage(1);
         return;
       }
 
@@ -72,16 +90,11 @@ function StarWarsCharacter() {
 
       setFilteredCharacters(filtered);
       setTotalPages(Math.ceil(filtered.length / itemsPerPage));
-      setCurrentPage(1); // Reset to first page when searching
+      setCurrentPage(1);
     });
-  }, [searchQuery, characters]);
-
+  };
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
-  };
-
-  const clearSearch = () => {
-    setSearchQuery("");
   };
 
   // Get current page characters - memoized to prevent recalculation on every render
@@ -152,9 +165,15 @@ function StarWarsCharacter() {
     <div className="container mx-auto p-4 border border-gray-300 rounded bg-white">
       {/* Search bar */}
       <SearchBar
-        clearSearch={clearSearch}
         searchQuery={searchQuery}
         handleSearch={handleSearch}
+        clearSearch={() => {
+          setSearchQuery("");
+          setFilteredCharacters(characters);
+          setCurrentPage(1);
+          setTotalPages(Math.ceil(characters.length / itemsPerPage));
+        }}
+        onSearch={handleSearchClick}
       />
       <CharacterGrid
         isLoading={isLoading}
