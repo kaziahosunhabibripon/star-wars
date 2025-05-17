@@ -76,6 +76,8 @@ Open in browser
 
 Visit: http://localhost:3000
 
+![Star Wars project task ](Search_Test_Result.png)
+
 🌍 Live Demo
 The project is deployed on Vercel:
 
