@@ -34,4 +34,39 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
 # star-wars
+
+# Project Name
+
+A brief description of your project and what it does.
+
+## 🚀 Features
+
+- Feature 1 Search Box
+- Feature 2 Starwars id and Details Page
+- Feature 3 Pagination
+
+## 🛠️ Technology Stack
+
+- **Frontend**: Next Js V 15.3, Tailwind CSS V4, React Icons
+- **API**: https://akabab.github.io/starwars-api/api/all.json
+
+## 📦 Installation
+
+Follow these steps to install the project locally:
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (vX.X.X)
+
+### Steps
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/kaziahosunhabibripon/star-wars
+
+   ```
