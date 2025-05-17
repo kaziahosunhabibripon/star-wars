@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export interface Character {
   id: number;
   name: string;
@@ -31,7 +33,7 @@ export interface CharacterGridProps {
 
 export type PaginationProps = {
   isLoading: boolean;
-  filteredCharacters: Character[]; // or any[] if Character is not defined
+  filteredCharacters: Character[];
   goToPage: (page: number) => void;
   currentPage: number;
   itemsPerPage: number;
@@ -43,4 +45,17 @@ export interface SearchBarProps {
   handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
   clearSearch: () => void;
   onSearch: () => void;
+}
+
+export interface UsePaginationResult<T> {
+  currentPage: number;
+  totalPages: number;
+  currentItems: T[];
+  goToPage: (page: number) => void;
+  paginationElements: ReactElement[];
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+}
+export interface CharacterDetailsProps {
+  character: Character;
+  onClose: () => void;
 }

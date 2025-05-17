@@ -1,6 +1,6 @@
 "use client";
 import { SearchBarProps } from "@/types";
-import { RxCross2 } from "react-icons/rx";
+import { IoSearchSharp } from "react-icons/io5";
 
 export default function SearchBar({
   searchQuery,
@@ -10,26 +10,27 @@ export default function SearchBar({
 }: SearchBarProps) {
   return (
     <div className="flex justify-end mb-4">
-      <div className="relative">
+      <div className="flex items-center border border-gray-300 rounded-2xl overflow-hidden">
         <input
           type="text"
           placeholder="Search"
           value={searchQuery}
           onChange={handleSearch}
-          className="w-48 pr-8 border border-gray-300"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+            }
+          }}
+          className="w-48 px-4 py-2 rounded-l-2xl border border-gray-300"
         />
-        {searchQuery && (
-          <button
-            onClick={clearSearch}
-            className="absolute right-10 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-          >
-            <RxCross2 className="h-4 w-4" />
-          </button>
-        )}
+
         <button
-          className="border border-gray-300 ml-2"
-          onClick={onSearch} // call onSearch here directly
+          className="cursor-pointer bg-gray-200 px-4  hover:bg-sky-100 py-2 text-md font-medium flex items-center gap-1 text-gray-700"
+          onClick={onSearch}
         >
+          {searchQuery && (
+            <IoSearchSharp className="h-4 w-4" onClick={clearSearch} />
+          )}
           Search
         </button>
       </div>

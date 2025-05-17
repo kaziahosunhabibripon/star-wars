@@ -1,9 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import Image from "next/image";
-import { FaCircleUser } from "react-icons/fa6";
 import { Character } from "@/types";
+import CharacterImage from "./CharacterImage";
 
 interface CharacterCardProps {
   character: Character;
@@ -14,34 +12,16 @@ export default function CharacterCard({
   character,
   onClick,
 }: CharacterCardProps) {
-  const [imageError, setImageError] = useState(false);
-
-  // Memoize the character image URL - use the image from the API
-  const characterImageUrl = useMemo(() => {
-    return character.image || "/placeholder.svg";
-  }, [character.image]);
-
   return (
     <div
-      className="border border-gray-300 p-4 rounded cursor-pointer hover:shadow-md transition-shadow flex flex-col items-center"
+      className="p-4 rounded-md cursor-pointer shadow-lg shadow-lime-950 hover:animate-pulse transition-shadow flex flex-col items-center"
       onClick={onClick}
     >
-      <div className="relative w-24 h-24 mx-auto rounded-lg border border-gray-300 mb-3 overflow-hidden">
-        {!imageError ? (
-          <Image
-            src={characterImageUrl || "/placeholder.svg"}
-            alt={character.name}
-            width={200}
-            height={200}
-            className="object-cover"
-            priority={true}
-            onError={() => setImageError(true)}
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-            <FaCircleUser className="h-10 w-10 text-gray-400" />
-          </div>
-        )}
+      <div className="relative w-28 h-28  rounded-full overflow-hidden">
+        <CharacterImage
+          characterImageUrl={character.image}
+          alt={character.name}
+        />
       </div>
       <h3 className="text-center font-medium mb-1 text-sm">{character.name}</h3>
       <h3 className="text-center font-medium mb-1 text-sm">

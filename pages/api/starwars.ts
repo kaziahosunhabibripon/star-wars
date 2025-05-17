@@ -1,4 +1,3 @@
-"use server";
 import { Character } from "@/types";
 
 export async function fetchCharacters(): Promise<Character[]> {

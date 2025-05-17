@@ -1,10 +1,8 @@
 "use client";
 
 import type React from "react";
-import { useState, useMemo } from "react";
-
-import Image from "next/image";
-import { Character } from "@/types";
+import { useMemo } from "react";
+import { CharacterDetailsProps } from "@/types";
 import { FaCircleUser } from "react-icons/fa6";
 import Link from "next/link";
 import {
@@ -15,22 +13,12 @@ import {
   Weight,
   ExternalLink,
 } from "lucide-react";
-interface CharacterDetailsModalProps {
-  character: Character;
-  onClose: () => void;
-}
-
+import CharacterImage from "./CharacterImage";
+import { ImCross } from "react-icons/im";
 export default function CharacterDetails({
   character,
   onClose,
-}: CharacterDetailsModalProps) {
-  const [imageError, setImageError] = useState(false);
-
-  // Memoize the character image URL
-  const characterImageUrl = useMemo(() => {
-    return character.image || "/placeholder.svg";
-  }, [character.image]);
-
+}: CharacterDetailsProps) {
   // Handle modal backdrop click
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -67,40 +55,32 @@ export default function CharacterDetails({
 
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0  bg-slate-950  flex items-center justify-center z-50 p-4"
       onClick={handleBackdropClick}
     >
-      <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-sky-100 rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         {/* Close button */}
-        <div className="sticky top-0 bg-white p-4 border-b border-gray-200 flex justify-between items-center">
+        <div className="sticky top-0 bg-purple-100  p-4 border-b border-gray-200 flex justify-between items-center">
           <h2 className="text-xl font-bold">Character Details</h2>
-          <button onClick={onClose} className="rounded-full">
-            x
-          </button>
+          <>
+            <ImCross
+              onClick={onClose}
+              className="rounded-full  text-purple-800 cursor-alias hover:animate-spin hover:text-2xl"
+            />
+          </>
         </div>
 
         {/* Modal content */}
         <div className="p-6">
-          <div>
+          <div className="cursor-pointer">
             <div className="flex flex-col md:flex-row gap-6">
               {/* Character image */}
               <div className="w-full md:w-1/3">
-                <div className="relative aspect-square rounded-lg overflow-hidden border border-gray-300 shadow-md">
-                  {!imageError ? (
-                    <Image
-                      src={characterImageUrl || "/placeholder.svg"}
-                      alt={character.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 300px"
-                      className="object-cover"
-                      priority={true}
-                      onError={() => setImageError(true)}
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                      <FaCircleUser className="h-24 w-24 text-gray-400" />
-                    </div>
-                  )}
+                <div className="relative aspect-square hover:animate-pulse cursor-progress rounded-lg overflow-hidden border border-gray-300 shadow-md">
+                  <CharacterImage
+                    characterImageUrl={character.image}
+                    alt={character.name}
+                  />
                 </div>
                 {character.wiki && (
                   <div className="mt-3 text-center">
