@@ -57,30 +57,20 @@ Follow these steps to run the project locally:
    cd star-wars
    ```
 
-   Install dependencies
+## You can use any of the following:
 
-bash
-Copy
-Edit
-npm install
-Start the development server
+```
+ npm install
 
-You can use any of the following:
+ yarn install
 
-bash
-Copy
-Edit
-npm run dev
+```
 
-# or
+## Then Run following CMD:
 
-yarn dev
-
-# or
-
-pnpm dev
-
-# or
+```
+  npm run dev
+```
 
 Open in browser
 
@@ -104,4 +94,7 @@ The project is deployed on Vercel:
 
 ## Last Phase Will Try to include
 
---> Make Backend --> with our own API --> Node Js, Express JS, Prisama, PostgresSQL
+--> Make Backend -->
+-->with our own API -->
+
+## Node Js, Express JS, Prisama, PostgresSQL
